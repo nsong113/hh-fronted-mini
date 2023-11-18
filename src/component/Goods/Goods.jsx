@@ -6,6 +6,7 @@ import { getGoods } from "../../api/goods";
 
 const Goods = () => {
   const { data: goods } = useQuery("getGoods", getGoods);
+
   const [filterInput, setFilterInput] = useState("");
 
   const onClickFilterHandler = () => {

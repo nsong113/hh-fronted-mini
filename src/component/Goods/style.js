@@ -36,8 +36,10 @@ export const Goods = styled.div`
   padding: 20px;
   margin: 0 auto 60px auto;
   background-color: #efeaea;
+
   display: flex;
-  flex-direction: column; /* 자식들을 세로로 나열 */
+  flex-direction: column;
+
   align-items: stretch;
 `;
 
@@ -50,20 +52,40 @@ export const GoodsTitleDiv = styled.div`
   margin-bottom: 50px;
 `;
 
-export const GoodsImgDiv = styled.div`
-  width: 300px;
-  height: 230px;
-  background-image: url(/main_item.png);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+export const GoodsProductDiv = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+`;
+
+export const GoodsItemFlexBox = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
 `;
 
 export const GoodsItemsDiv = styled.div`
   width: 300px;
   height: 400px;
+  flex: 0 0 auto;
   border: 1px solid black;
   padding: 10px;
+`;
+
+export const GoodsImgDiv = styled.div`
+  /* width: 300px; */
+  height: 230px;
+  /* background-image: url(/main_item.png); */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 `;
 
 export const GoodsItemInfoBoxDiv = styled.div`
@@ -80,15 +102,4 @@ export const GoodsItemEditBtn = styled.div`
   background-color: #b8c6d5;
   line-height: 30px;
   text-align: center;
-`;
-
-//각 아이템 컴포넌트
-export const GoodsItemFlexBox = styled.div`
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 30px;
 `;

@@ -1,5 +1,7 @@
 //goods (main) 페이지에 들어가는 axios 모듈
+
 //api > goods
+
 import axios from "axios";
 
 //goods 조회
@@ -9,6 +11,7 @@ const getGoods = async () => {
       `${process.env.REACT_APP_MOCK_SERVER}/goodsItem`
     );
     console.log(res.data);
+
     return res.data;
   } catch (error) {
     console.log("getGoods통신오류입니다.", error);
