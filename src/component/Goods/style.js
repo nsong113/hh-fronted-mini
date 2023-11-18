@@ -32,10 +32,13 @@ export const GoodsBannerImgBox = styled.div`
 
 export const Goods = styled.div`
   width: 80%;
-  height: 100vh;
+  min-height: 100vh;
   padding: 20px;
   margin: 0 auto 60px auto;
   background-color: #efeaea;
+  display: flex;
+  flex-direction: column; /* 자식들을 세로로 나열 */
+  align-items: stretch;
 `;
 
 export const GoodsFilterDiv = styled.div`
