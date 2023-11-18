@@ -1,0 +1,81 @@
+{
+  "signup": [
+    {
+      "id": 1,
+      "loginId": "helloworld55",
+      "password": "1234",
+      "nickname": "happyDay55",
+      "userType": ["BUYER", "SELLER"]
+    },
+    {
+      "id": 2,
+      "loginId": "anotherUser",
+      "password": "5678",
+      "nickname": "joyfulDay",
+      "userType": ["BUYER"]
+    }
+  ],
+  "goods": [
+    {
+      "id": 1,
+      "content": "goodsName",
+      "imageUrl": "imageUrl",
+      "price": "price"
+    },
+    {
+      "id": 2,
+      "content": "anotherGoods",
+      "imageUrl": "anotherImageUrl",
+      "price": "anotherPrice"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "comment": "맛있어요!",
+      "orders": {
+        "goodsId": 1,
+        "quantity": 10
+      }
+    },
+    {
+      "id": 2,
+      "comment": "좋아요!",
+      "orders": {
+        "goodsId": 2,
+        "quantity": 5
+      }
+    }
+  ],
+
+  "goodsItem": [
+    {
+      "goodsId": 0,
+      "goodsName": "Chocolate Brownie",
+      "price": "4000 ₩",
+      "imageUrl": "/main_item.png",
+      "like": 30
+    },
+    {
+      "goodsId": 1,
+      "goodsName": "Strawberry Brownie",
+      "price": "4000 ₩",
+      "imageUrl": "/main_item.png",
+      "like": 40
+    },
+    {
+      "goodsId": 2,
+      "goodsName": "Banana Brownie",
+      "price": "4000 ₩",
+      "imageUrl": "/main_item.png",
+      "like": 50
+    },
+    {
+      "goodsId": 3,
+      "goodsName": "Chocolate Brownie",
+      "price": "4000 ₩",
+      "imageUrl": "/main_item.png",
+      "like": 30
+    }
+  ]
+}
