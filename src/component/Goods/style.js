@@ -78,3 +78,14 @@ export const GoodsItemEditBtn = styled.div`
   line-height: 30px;
   text-align: center;
 `;
+
+//각 아이템 컴포넌트
+export const GoodsItemFlexBox = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+`;
