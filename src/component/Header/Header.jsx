@@ -1,17 +1,33 @@
 import React from "react";
 import * as ST from "./style";
-// import { FaBeer } from "react-icons/fa";
+import { LuDessert } from "react-icons/lu";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
+  const navigate = useNavigate();
+
+  const onClickHomeHandler = () => {
+    navigate("/goods");
+  };
+
+  const onClickUploadHandler = () => {
+    navigate("/goods/content");
+  };
+
   return (
     <ST.HeaderBoxDiv>
       <ST.HeaderContainerDiv>
         <ST.HeaderFlexDiv>
-          {/* <icon></icon> */}
+          <LuDessert
+            style={{ fontSize: "40px" }}
+            onClick={onClickHomeHandler}
+          />
           <ST.HeaderTitleH1>Dessert Shop</ST.HeaderTitleH1>
         </ST.HeaderFlexDiv>
         <ST.HeaderUtilDiv>
-          <p className="HeaderUtilContentP">판매글 올리기</p>
+          <p className="HeaderUtilContentP" onClick={onClickUploadHandler}>
+            판매글 올리기
+          </p>
           <p className="HeaderUtilContentP">My Page</p>
           <p className="HeaderUtilContentP">로그아웃</p>
         </ST.HeaderUtilDiv>

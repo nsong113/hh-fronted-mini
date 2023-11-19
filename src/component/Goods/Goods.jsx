@@ -10,10 +10,14 @@ const Goods = () => {
   const [filterInput, setFilterInput] = useState("");
 
   const onClickFilterHandler = () => {
-    // const goodsRegex = "";
-    // const filteredGoods = goods.filter((a) => {
-    //   a.test(goodsRegex);
-    // });
+    // const goodsRegex = new RegExp(filterInput, "i");
+
+    goods.goodsName.toLowerCase().includes(filterInput);
+
+    const goodsRegex = /${filterInput}/;
+    const filteredGoods = goods.filter((a) => {
+      a.test(goodsRegex);
+    });
   };
 
   // 이메일 주소 유효성을 검사하는 정규 표현식
