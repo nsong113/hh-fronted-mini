@@ -8,7 +8,7 @@ import axios from "axios";
 const getGoods = async () => {
   try {
     const res = await axios.get(
-      `${process.env.REACT_APP_MOCK_SERVER}/goodsItem`
+      `${process.env.REACT_APP_SERVER_URL}/goodsItem`
     );
     console.log(res.data);
 
@@ -23,7 +23,7 @@ const getGoods = async () => {
 const postGoods = async (newContent) => {
   try {
     const res = await axios.post(
-      `${process.env.REACT_APP_MOCK_SERVER}/goodsItem`,
+      `${process.env.REACT_APP_SERVER_URL}/goodsItem`,
       newContent
     );
     console.log(res.data);

@@ -5,20 +5,14 @@
       "loginId": "helloworld55",
       "password": "1234",
       "nickname": "happyDay55",
-      "userType": [
-        "BUYER",
-        "SELLER"
-      ]
-
+      "userType": ["BUYER", "SELLER"]
     },
     {
       "id": 2,
       "loginId": "anotherUser",
       "password": "5678",
       "nickname": "joyfulDay",
-      "userType": [
-        "BUYER"
-      ]
+      "userType": ["BUYER"]
     },
     {
       "id": 3,
@@ -124,32 +118,32 @@
   ],
   "goodsItem": [
     {
-      "goodsId": 0,
+      "id": 0,
       "goodsName": "Chocolate Brownie",
       "price": "4000 ₩",
       "imageUrl": "/main_item.png",
-      "like": 30
+      "likeCount": 30
     },
     {
-      "goodsId": 1,
+      "id": 1,
       "goodsName": "Strawberry Brownie",
       "price": "4000 ₩",
       "imageUrl": "/main_item.png",
-      "like": 40
+      "likeCount": 40
     },
     {
-      "goodsId": 2,
+      "id": 2,
       "goodsName": "Banana Brownie",
       "price": "4000 ₩",
       "imageUrl": "/main_item.png",
-      "like": 50
+      "likeCount": 50
     },
     {
-      "goodsId": 3,
+      "id": 3,
       "goodsName": "Chocolate Brownie",
       "price": "4000 ₩",
       "imageUrl": "/main_item.png",
-      "like": 30
+      "likeCount": 30
     }
   ]
 }

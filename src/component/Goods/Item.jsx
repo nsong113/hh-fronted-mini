@@ -9,10 +9,14 @@ const Item = ({ filteredItem, onClickFilterHandler }) => {
   const [filteredGoods, setFilteredGoods] = useState([]);
   const navigate = useNavigate();
 
-  //첫 렌더링 시 전체 goods 보여주기
+  //첫 렌더링 시 전체 goods 보여주기 //뒤로가기&홈버튼 클릭시 전체 로딩이 안됨.
   useEffect(() => {
     setFilteredGoods(goods);
   }, [goods]);
+
+  useEffect(() => {
+    setFilteredGoods(goods);
+  }, []);
 
   //필터 될 때 필터된 goods 보여주기
   useEffect(() => {
@@ -32,11 +36,11 @@ const Item = ({ filteredItem, onClickFilterHandler }) => {
 
   return (
     <>
-      {filteredGoods?.map((item) => {
+      {filteredGoods.map((item) => {
         return (
           <ST.GoodsItemsDiv
-            key={item.goodsId}
-            onClick={() => goToDetailHandler(item.goodsId)}
+            key={item.id}
+            onClick={() => goToDetailHandler(item.id)}
           >
             <div>
               <ST.GoodsImgDiv
@@ -50,7 +54,6 @@ const Item = ({ filteredItem, onClickFilterHandler }) => {
                   <p>🩷 {item.likeCount} </p>
                 </div>
                 <ST.GoodsItemEditBtn>수정</ST.GoodsItemEditBtn>
-                <div></div>
               </ST.GoodsItemInfoBoxDiv>
             </div>
           </ST.GoodsItemsDiv>
