@@ -3,8 +3,7 @@ import styled from "styled-components";
 export const HeaderBoxDiv = styled.div`
   width: 100%;
   height: 10vh;
-
-  background-color: #ead2d4;
+  background-color: #b8c6d5;
 `;
 
 export const HeaderContainerDiv = styled.div`
@@ -38,4 +37,5 @@ export const HeaderTitleH1 = styled.h1`
 
 export const HeaderUtilContentP = styled.p`
   font-size: 21px;
+  color: #b8c6d5; 
 `;

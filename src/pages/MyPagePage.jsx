@@ -1,16 +1,9 @@
-//마이페이지
-
-import React from "react";
-import Header from "../component/Header/Header";
-import Footer from "../component/Footer/Footer";
+import React from 'react'
 
 const MyPagePage = () => {
   return (
-    <div>
-      <Header />
-      <Footer />
-    </div>
-  );
-};
+    <div>MyPagePage</div>
+  )
+}
 
-export default MyPagePage;
+export default MyPagePage
