@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react";
 import * as ST from "./style";
 import { getGoods } from "../../api/goods";
 import { useQuery } from "react-query";
+import { useNavigate } from "react-router";
 
 const Item = ({ filteredItem, onClickFilterHandler }) => {
   const { isLoading, isError, data: goods } = useQuery("getGoods", getGoods);
   const [filteredGoods, setFilteredGoods] = useState([]);
+  const navigate = useNavigate();
 
   //첫 렌더링 시 전체 goods 보여주기
   useEffect(() => {
@@ -24,11 +26,18 @@ const Item = ({ filteredItem, onClickFilterHandler }) => {
     console.log("goods에러입니다. ");
   }
 
+  const goToDetailHandler = (id) => {
+    navigate(`/goods/${id}`);
+  };
+
   return (
     <>
       {filteredGoods?.map((item) => {
         return (
-          <ST.GoodsItemsDiv key={item.goodsId}>
+          <ST.GoodsItemsDiv
+            key={item.goodsId}
+            onClick={() => goToDetailHandler(item.goodsId)}
+          >
             <div>
               <ST.GoodsImgDiv
                 style={{ backgroundImage: `url(${item.imageUrl})` }}

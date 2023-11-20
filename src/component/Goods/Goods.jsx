@@ -41,10 +41,7 @@ const Goods = () => {
 
         {/* 각 아이템 컴포넌트 */}
         <ST.GoodsItemFlexBox>
-          <Item
-            filteredItem={filteredItem}
-            onClickFilterHandler={onClickFilterHandler}
-          />
+          <Item filteredItem={filteredItem} />
         </ST.GoodsItemFlexBox>
       </div>
     </ST.Goods>
