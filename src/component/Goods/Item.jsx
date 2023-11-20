@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import * as ST from "./style";
 import { getGoods } from "../../api/goods";
-import { useQuery } from "react-query";
+import { useMutation, useQuery } from "react-query";
 import { useNavigate } from "react-router";
+import { addLike } from "../../api/goods";
 
 const Item = ({ filteredItem, onClickFilterHandler }) => {
   const { isLoading, isError, data: goods } = useQuery("getGoods", getGoods);
@@ -34,6 +35,12 @@ const Item = ({ filteredItem, onClickFilterHandler }) => {
     navigate(`/goods/${id}`);
   };
 
+  //addLike Mutation
+  useMutation("getGoods", addLike);
+
+  //addLike Mutation 사용
+  const addLikeHandler = (id) => {};
+
   return (
     <>
       {filteredGoods.map((item) => {
@@ -51,7 +58,9 @@ const Item = ({ filteredItem, onClickFilterHandler }) => {
                 <div className="GoodsItemInfoDiv">
                   <h6>{item.goodsName}</h6>
                   <h4>{item.price}</h4>
-                  <p>🩷 {item.likeCount} </p>
+                  <p onClick={() => addLikeHandler(item.id)}>
+                    🩷 {item.likeCount}{" "}
+                  </p>
                 </div>
                 <ST.GoodsItemEditBtn>수정</ST.GoodsItemEditBtn>
               </ST.GoodsItemInfoBoxDiv>

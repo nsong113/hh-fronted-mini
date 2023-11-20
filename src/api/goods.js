@@ -4,6 +4,23 @@
 
 import axios from "axios";
 
+//usertype 인가
+const autorization = async () => {
+  try {
+    // const accessToken = cookies.get("accessToken");
+    // const res = await axios.get(
+    //   `${process.env.REACT_APP_SERVER_URL}/checkLoginStatus`
+    // {
+    //   header: {
+    //     Authorization: `Bearer ${accessToken}`,
+    //   },
+    // }
+    // );
+  } catch (error) {
+    console.log("autorization에러입니다", error);
+  }
+};
+
 //goods 조회
 const getGoods = async () => {
   try {
@@ -33,4 +50,18 @@ const postGoods = async (newContent) => {
   }
 };
 
-export { getGoods, postGoods };
+//like
+//goods/:goodsId/like
+const addLike = async (id) => {
+  // try {
+  //   const res = await axios.post(`${process.env.REACT_APP_SERVER_URL}/goods/${id}/like`),{
+  //     header:{
+  //       Authorization:`Bearer ${accessToken}`
+  //     }
+  //   }
+  // } catch (error) {
+  //   console.log("addLike error", error);
+  // }
+};
+
+export { getGoods, postGoods, autorization, addLike };

@@ -19,6 +19,7 @@ const Product = () => {
     reader.onloadend = () => {
       setImgFile(reader.result);
       // if (typeof event.target?.result ==="string") {
+      //mutate 보내기
       //   dispatch(addImage(event.target?.result))
       // }
     };
@@ -37,7 +38,7 @@ const Product = () => {
   };
 
   //post 보내기
-  //현재 postGoods 통신오류 남.. 500
+  //현재 postGoods 통신오류 남.. 500 -> 해결
   const boardMutation = useMutation(postGoods, {
     onSuccess: () => {
       console.log("성공하였습니다.");
