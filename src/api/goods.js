@@ -18,4 +18,19 @@ const getGoods = async () => {
   }
 };
 
-export { getGoods };
+//goods 포스트
+//나중에 goodsItem -> content로 바꾸기
+const postGoods = async (newContent) => {
+  try {
+    const res = await axios.post(
+      `${process.env.REACT_APP_MOCK_SERVER}/goodsItem`,
+      newContent
+    );
+    console.log(res.data);
+    // return res.data;
+  } catch (error) {
+    console.log("postGoods통신오류입니다.", error);
+  }
+};
+
+export { getGoods, postGoods };

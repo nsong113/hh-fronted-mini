@@ -38,7 +38,7 @@ const Item = ({ filteredItem, onClickFilterHandler }) => {
                 <div className="GoodsItemInfoDiv">
                   <h6>{item.goodsName}</h6>
                   <h4>{item.price}</h4>
-                  <p>🩷 {item.like} </p>
+                  <p>🩷 {item.likeCount} </p>
                 </div>
                 <ST.GoodsItemEditBtn>수정</ST.GoodsItemEditBtn>
                 <div></div>

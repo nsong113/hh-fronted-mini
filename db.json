@@ -54,28 +54,28 @@
       "goodsName": "Chocolate Brownie",
       "price": "4000 ₩",
       "imageUrl": "/main_item.png",
-      "like": 30
+      "likeCount": 30
     },
     {
       "goodsId": 1,
       "goodsName": "Strawberry Brownie",
       "price": "4000 ₩",
       "imageUrl": "/main_item.png",
-      "like": 40
+      "likeCount": 40
     },
     {
       "goodsId": 2,
       "goodsName": "Banana Brownie",
       "price": "4000 ₩",
       "imageUrl": "/main_item.png",
-      "like": 50
+      "likeCount": 50
     },
     {
       "goodsId": 3,
       "goodsName": "Chocolate Brownie",
       "price": "4000 ₩",
       "imageUrl": "/main_item.png",
-      "like": 30
+      "likeCount": 30
     }
   ]
 }
