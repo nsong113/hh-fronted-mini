@@ -5,21 +5,17 @@
       "loginId": "helloworld55",
       "password": "1234",
       "nickname": "happyDay55",
-<<<<<<< HEAD
       "userType": [
         "BUYER",
         "SELLER"
       ]
-=======
-      "userType": ["BUYER", "SELLER"]
->>>>>>> 28e1752cc2b097efd54b667ab6a5ce07c0cab24e
+
     },
     {
       "id": 2,
       "loginId": "anotherUser",
       "password": "5678",
       "nickname": "joyfulDay",
-<<<<<<< HEAD
       "userType": [
         "BUYER"
       ]
@@ -87,26 +83,11 @@
       "id": 12
     },
     {
-      "id": 13,
-      "loginId": "XX@X.X",
-      "password": "XX",
-      "nickname": "XX",
-      "userType": "BUYER"
-    },
-    {
       "id": 14,
       "loginId": "XX@X.X",
       "password": "XX",
       "nickname": "XX",
       "userType": "SELLER"
-    },
-    {
-      "loginId": "XX@X.X",
-      "password": "XX",
-      "id": 15
-=======
-      "userType": ["BUYER"]
->>>>>>> 28e1752cc2b097efd54b667ab6a5ce07c0cab24e
     }
   ],
   "goods": [
@@ -141,57 +122,34 @@
       }
     }
   ],
-<<<<<<< HEAD
-=======
-
->>>>>>> 28e1752cc2b097efd54b667ab6a5ce07c0cab24e
   "goodsItem": [
     {
       "goodsId": 0,
       "goodsName": "Chocolate Brownie",
       "price": "4000 ₩",
       "imageUrl": "/main_item.png",
-<<<<<<< HEAD
       "like": 30
-=======
-      "likeCount": 30
->>>>>>> 28e1752cc2b097efd54b667ab6a5ce07c0cab24e
     },
     {
       "goodsId": 1,
       "goodsName": "Strawberry Brownie",
       "price": "4000 ₩",
       "imageUrl": "/main_item.png",
-<<<<<<< HEAD
       "like": 40
-=======
-      "likeCount": 40
->>>>>>> 28e1752cc2b097efd54b667ab6a5ce07c0cab24e
     },
     {
       "goodsId": 2,
       "goodsName": "Banana Brownie",
       "price": "4000 ₩",
       "imageUrl": "/main_item.png",
-<<<<<<< HEAD
       "like": 50
-=======
-      "likeCount": 50
->>>>>>> 28e1752cc2b097efd54b667ab6a5ce07c0cab24e
     },
     {
       "goodsId": 3,
       "goodsName": "Chocolate Brownie",
       "price": "4000 ₩",
       "imageUrl": "/main_item.png",
-<<<<<<< HEAD
       "like": 30
     }
   ]
 }
-=======
-      "likeCount": 30
-    }
-  ]
-}
->>>>>>> 28e1752cc2b097efd54b667ab6a5ce07c0cab24e

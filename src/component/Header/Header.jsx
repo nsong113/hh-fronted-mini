@@ -1,23 +1,5 @@
 import React from "react";
 import * as ST from "./style";
-<<<<<<< HEAD
-import { useNavigate } from "react-router-dom";
-
-const Header = () => {
-  console.log("Logout link clicked");
-  const navigate = useNavigate();
-
-  const handleLogout = () => {
-    navigate('/goods');
-    console.log("Navigating to '/goods'");
-  };
-  
-  // const handleLogin = () => {
-  //   navigate('/goods'); 
-  //   console.log("Navigating to '/goods'");
-  // };
-  
-=======
 import { LuDessert } from "react-icons/lu";
 import { useNavigate } from "react-router-dom";
 
@@ -31,16 +13,17 @@ const Header = () => {
   const onClickUploadHandler = () => {
     navigate("/goods/content");
   };
->>>>>>> 28e1752cc2b097efd54b667ab6a5ce07c0cab24e
+
+  const handleLogout = () => {
+    navigate('/goods');
+    console.log("Navigating to '/goods'");
+  };
 
   return (
     <ST.HeaderBoxDiv>
       <ST.HeaderContainerDiv>
         <ST.HeaderFlexDiv>
-          <LuDessert
-            style={{ fontSize: "40px" }}
-            onClick={onClickHomeHandler}
-          />
+          <LuDessert style={{ fontSize: "40px" }} onClick={onClickHomeHandler} />
           <ST.HeaderTitleH1>Dessert Shop</ST.HeaderTitleH1>
         </ST.HeaderFlexDiv>
         <ST.HeaderUtilDiv>
