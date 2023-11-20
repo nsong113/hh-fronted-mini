@@ -35,4 +35,8 @@ export const FooterSNSDiv = styled.div`
   border: 1px solid #999;
   padding: 5px;
   border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 `;

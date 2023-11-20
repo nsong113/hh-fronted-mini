@@ -25,7 +25,11 @@ function App() {
           {/* 글작성 페이지 */}
           <Route path="/goods/content" element={<ProductPage />} />
           {/* 상세페이지 + 코멘트 */}
+<<<<<<< HEAD
           <Route path="/api/goods/:goodsId" element={<DetailPage />} />
+=======
+          <Route path="/goods/:goodsId" element={<DetailPage />} />
+>>>>>>> 28e1752cc2b097efd54b667ab6a5ce07c0cab24e
           {/* 장바구니 */}
           <Route path="/orders" element={<BasketPage />} />
           {/* 마이페이지 */}

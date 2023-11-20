@@ -1,5 +1,7 @@
 import React from "react";
 import * as ST from "./style";
+import { FaInstagramSquare, FaFacebookF, FaGithub } from "react-icons/fa";
+import { FaXTwitter, FaThreads } from "react-icons/fa6";
 
 const Footer = () => {
   return (
@@ -14,11 +16,21 @@ const Footer = () => {
         <br />
         <br />
         <ST.FooterSNSContainerDiv>
-          <ST.FooterSNSDiv></ST.FooterSNSDiv>
-          <ST.FooterSNSDiv></ST.FooterSNSDiv>
-          <ST.FooterSNSDiv></ST.FooterSNSDiv>
-          <ST.FooterSNSDiv></ST.FooterSNSDiv>
-          <ST.FooterSNSDiv></ST.FooterSNSDiv>
+          <ST.FooterSNSDiv>
+            <FaInstagramSquare />
+          </ST.FooterSNSDiv>
+          <ST.FooterSNSDiv>
+            <FaFacebookF />
+          </ST.FooterSNSDiv>
+          <ST.FooterSNSDiv>
+            <FaXTwitter />
+          </ST.FooterSNSDiv>
+          <ST.FooterSNSDiv>
+            <FaGithub />
+          </ST.FooterSNSDiv>
+          <ST.FooterSNSDiv>
+            <FaThreads />
+          </ST.FooterSNSDiv>
         </ST.FooterSNSContainerDiv>
       </ST.FooterContainerDiv>
     </ST.FooterBoxDiv>

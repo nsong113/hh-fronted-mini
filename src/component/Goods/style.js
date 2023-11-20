@@ -32,10 +32,15 @@ export const GoodsBannerImgBox = styled.div`
 
 export const Goods = styled.div`
   width: 80%;
-  height: 100vh;
+  min-height: 100vh;
   padding: 20px;
   margin: 0 auto 60px auto;
   background-color: #efeaea;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: stretch;
 `;
 
 export const GoodsFilterDiv = styled.div`
@@ -47,20 +52,40 @@ export const GoodsTitleDiv = styled.div`
   margin-bottom: 50px;
 `;
 
-export const GoodsImgDiv = styled.div`
-  width: 300px;
-  height: 230px;
-  background-image: url(/main_item.png);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+export const GoodsProductDiv = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+`;
+
+export const GoodsItemFlexBox = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
 `;
 
 export const GoodsItemsDiv = styled.div`
   width: 300px;
   height: 400px;
+  flex: 0 0 auto;
   border: 1px solid black;
   padding: 10px;
+`;
+
+export const GoodsImgDiv = styled.div`
+  /* width: 300px; */
+  height: 230px;
+  /* background-image: url(/main_item.png); */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 `;
 
 export const GoodsItemInfoBoxDiv = styled.div`

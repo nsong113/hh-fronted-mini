@@ -3,11 +3,13 @@
 import React from "react";
 import Header from "../component/Header/Header";
 import Footer from "../component/Footer/Footer";
+import Product from "../component/Product/Product";
 
 const ProductPage = () => {
   return (
     <div>
       <Header />
+      <Product />
       <Footer />
     </div>
   );
