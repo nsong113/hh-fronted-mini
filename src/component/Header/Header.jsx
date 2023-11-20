@@ -14,9 +14,16 @@ const Header = () => {
     navigate("/goods/content");
   };
 
-  const handleLogout = () => {
+  const onClickhandleLogout = () => {
     navigate('/goods');
-    console.log("Navigating to '/goods'");
+  };
+
+  const onClickhandleLogin = () => {
+    navigate('/login');
+  };
+
+  const onClickhandleJoin = () => {
+    navigate('/signup');
   };
 
   return (
@@ -31,11 +38,14 @@ const Header = () => {
             판매글 올리기
           </p>
           <p className="HeaderUtilContentP">My Page</p>
-          {/* <p className="HeaderUtilContentP" onClick={handleLogin}>
+          <p className="HeaderUtilContentP" onClick={onClickhandleLogin}>
             로그인
-          </p> */}
-          <p className="HeaderUtilContentP" onClick={handleLogout}>
+          </p>
+          <p className="HeaderUtilContentP" onClick={onClickhandleLogout}>
             로그아웃
+          </p>
+          <p className="HeaderUtilContentP" onClick={onClickhandleJoin}>
+            회원가입
           </p>
         </ST.HeaderUtilDiv>
       </ST.HeaderContainerDiv>
