@@ -82,6 +82,99 @@
       "password": "XX",
       "nickname": "XX",
       "userType": "SELLER"
+    },
+    {
+      "loginId": "XX@X.X",
+      "password": "XX",
+      "id": 15
+    },
+    {
+      "id": 16,
+      "loginId": "XX@X.X",
+      "password": "XX",
+      "nickname": "XX",
+      "userType": "SELLER"
+    },
+    {
+      "id": 17,
+      "loginId": "sd",
+      "password": "ds",
+      "nickname": "ds",
+      "userType": "BUYER"
+    },
+    {
+      "id": 18,
+      "loginId": "sd",
+      "password": "ds",
+      "nickname": "ds",
+      "userType": "BUYER"
+    },
+    {
+      "id": 19,
+      "loginId": "ㅇㄴ",
+      "password": "ㄴㅇ",
+      "nickname": "ㄴㅇ",
+      "userType": "BUYER"
+    },
+    {
+      "id": 20,
+      "loginId": "XX@X.X",
+      "password": "XX",
+      "nickname": "ㅌㅌ",
+      "userType": "BUYER"
+    },
+    {
+      "loginId": "XX@X.X",
+      "password": "XX",
+      "id": 21
+    },
+    {
+      "id": 22,
+      "loginId": "XX@X.X",
+      "password": "XX",
+      "nickname": "XX",
+      "userType": "BUYER"
+    },
+    {
+      "id": 23,
+      "loginId": "XX@X.X",
+      "password": "XX",
+      "nickname": "ㅌㅌ",
+      "userType": "BUYER"
+    },
+    {
+      "loginId": "XX@X.X",
+      "password": "XX",
+      "id": 24
+    },
+    {
+      "loginId": "XX@X.X",
+      "password": "XX",
+      "id": 25
+    },
+    {
+      "id": 26,
+      "loginId": "XX@X.X",
+      "password": "xx",
+      "nickname": "ㅌㅌ",
+      "userType": "SELLER"
+    },
+    {
+      "loginId": "XX@X.X",
+      "password": "XX",
+      "id": 27
+    },
+    {
+      "loginId": "XX@X.X",
+      "password": "xx",
+      "id": 28
+    },
+    {
+      "id": 29,
+      "loginId": "XX@X.X",
+      "password": "XX",
+      "nickname": "xx",
+      "userType": "SELLER"
     }
   ],
   "goods": [

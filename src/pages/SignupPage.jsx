@@ -41,9 +41,9 @@ function Join() {
     try {
       const response = await registerMutation.mutateAsync({ loginId, password, nickname, userType });
 
-      const jwtToken = response.token;
+      const token = response.token;
 
-      document.cookie = `token=${jwtToken}; path=/`;
+      document.cookie = `token=${token}; path=/`;
 
     } catch (error) {
       if (error.response) {
