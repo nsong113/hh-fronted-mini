@@ -12,6 +12,7 @@ const Information = () => {
   console.log("items", items);
   console.log("item", item);
 
+  // 여기서 items 가 undefined라고 자주 오류 뜸-> 연결 후 확인
   const fountData = items.find((a) => a.id === item.id);
 
   console.log("fountData", fountData);
