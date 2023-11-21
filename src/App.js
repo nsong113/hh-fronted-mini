@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
+import "./App.css";
 
 import BasketPage from "./pages/BasketPage";
 import DetailPage from "./pages/DetailPage";

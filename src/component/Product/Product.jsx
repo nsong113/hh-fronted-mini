@@ -71,12 +71,12 @@ const Product = () => {
             ref={imgRef}
           />
         </ST.ProductAttatchInputBox>
-        <image
+        <img
           className="ProductAttatchmentImg"
           style={{ backgroundColor: "#999" }}
           src={imgFile ? imgFile : `/main_item.png`}
           alt="프로필 이미지"
-        ></image>
+        ></img>
       </ST.ProductAttatchmentDiv>
       <ST.ProductInfoContainerDiv>
         <ST.ProductInfoFlexDiv>

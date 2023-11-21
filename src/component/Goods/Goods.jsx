@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as ST from "./style";
 import Item from "./Item";
 import { useQuery } from "react-query";
@@ -10,6 +10,11 @@ const Goods = () => {
   const [filterInput, setFilterInput] = useState("");
   const [filteredItem, setFilteredItem] = useState([]);
 
+  useEffect(() => {
+    goods && setFilteredItem(goods);
+  }, [goods]);
+
+  //맨퍼음에 받아오는 axios data값은 무조건 undefined임 . 이거를 컨트롤해줘야함. isSuccess->true일 때 데이터 처리
   const onClickFilterHandler = () => {
     //필터기능
     const filtered = goods.filter((item) => {
@@ -19,6 +24,8 @@ const Goods = () => {
     setFilteredItem(filtered);
     // console.log("filtered", filtered);
   };
+
+  console.log("filteredItem", filteredItem);
 
   return (
     <ST.Goods>
