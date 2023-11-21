@@ -4,8 +4,6 @@
 
 import axios from "axios";
 
-// const cookies = new cookies();
-
 //usertype 인가
 const autorization = async () => {
   try {
@@ -64,56 +62,4 @@ const addLike = async (id) => {
   // }
 };
 
-//addToCart : 수량과 아이디값  orders
-const addToCart = async (update) => {
-  try {
-    const res = await axios.post(
-      `${process.env.REACT_APP_SERVER_URL}/orders`,
-      update
-    );
-  } catch (error) {
-    console.log("addToCart error", error);
-  }
-};
-
-//getComment
-const getComment = async ({ id, addComment }) => {
-  // const accessToken = cookies.get("accessToken");
-  try {
-    const res = await axios.post(
-      ///api/goods/:goodsId 로 나중에 수정
-      `${process.env.REACT_APP_SERVER_URL}/goodscomment/${id}`
-      // {
-      //   header: {
-      //     Authorization: `Bearer ${accessToken}`,
-      //   },
-      // }
-    );
-
-    return res.data;
-  } catch (error) {
-    console.log("getComment", getComment);
-  }
-};
-
-//addComment
-const addComment = async ({ id, addComment }) => {
-  // const accessToken = cookies.get("accessToken");
-  try {
-    const res = await axios.post(
-      ///api/goods/:goodsId 로 나중에 수정
-      `${process.env.REACT_APP_SERVER_URL}/goodscomment/${id}`,
-      addComment
-      // {
-      //   header: {
-      //     Authorization: `Bearer ${accessToken}`,
-      //   },
-      // }
-    );
-    return res.data;
-  } catch (error) {
-    console.log("addComment", addComment);
-  }
-};
-
-export { getGoods, postGoods, autorization, addLike, addToCart, addComment };
+export { getGoods, postGoods, autorization, addLike };
