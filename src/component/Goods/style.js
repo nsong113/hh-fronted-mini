@@ -61,20 +61,24 @@ export const GoodsProductDiv = styled.div`
   justify-content: space-between;
 `;
 
+////////여기 ㅅ ㅜ정!!!
 export const GoodsItemFlexBox = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
-  gap: 30px;
+  /* justify-content: left; */
+  /* gap: 30px; */
+  gap: 3%;
+  row-gap: 30px;
 `;
 
 export const GoodsItemsDiv = styled.div`
-  width: 300px;
+  width: 31.333%;
   height: 400px;
-  flex: 0 0 auto;
+  /* flex: 0 0 auto; */
+
   border: 1px solid black;
   padding: 10px;
 `;

@@ -10,6 +10,8 @@ const Product = () => {
   const [price, setPrice] = useState("");
   const [desc, setDesc] = useState("");
 
+  //이미지 리사이징 할까말까....
+
   const onChangeImgUploadHandler = (e) => {
     const file = e.target.files?.[0];
     // console.log(file);
@@ -18,13 +20,8 @@ const Product = () => {
     reader.readAsDataURL(file);
     reader.onloadend = () => {
       setImgFile(reader.result);
-      // if (typeof event.target?.result ==="string") {
-      //   dispatch(addImage(event.target?.result))
-      // }
     };
   };
-
-  console.log("imgFile", imgFile);
 
   const onChangeTitleHandler = (e) => {
     setTitle(e.target.value);
@@ -37,10 +34,11 @@ const Product = () => {
   };
 
   //post 보내기
-  //현재 postGoods 통신오류 남.. 500
+  //현재 postGoods 통신오류 남.. 500 -> 해결
   const boardMutation = useMutation(postGoods, {
     onSuccess: () => {
-      console.log("성공하였습니다.");
+      console.log("boardMutation 성공하였습니다.");
+      alert("등록되었습니다.");
     },
   });
 
@@ -70,12 +68,11 @@ const Product = () => {
             ref={imgRef}
           />
         </ST.ProductAttatchInputBox>
-        <image
+        <div
           className="ProductAttatchmentImg"
-          style={{ backgroundColor: "#999" }}
           src={imgFile ? imgFile : `/main_item.png`}
           alt="프로필 이미지"
-        ></image>
+        ></div>
       </ST.ProductAttatchmentDiv>
       <ST.ProductInfoContainerDiv>
         <ST.ProductInfoFlexDiv>

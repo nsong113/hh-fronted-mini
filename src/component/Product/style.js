@@ -9,7 +9,7 @@ export const ProductContainerDiv = styled.div`
 
 export const ProductAttatchmentDiv = styled.div`
   width: 100%;
-  height: 40vh;
+  height: 60vh;
   margin-top: 30px;
 `;
 
