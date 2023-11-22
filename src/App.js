@@ -22,15 +22,13 @@ function App() {
           {/* 로그인 */}
           <Route path="/login" element={<LoginPage />} />
           {/* 메인페이지 */}
-          <Route path="/goods" element={<GoodsPage />} />
+          <Route path="/" element={<GoodsPage />} />
           {/* 글작성 페이지 */}
-          <Route path="/goods/content" element={<ProductPage />} />
+          <Route path="/content" element={<ProductPage />} />
           {/* 상세페이지 + 코멘트 */}
-          <Route path="/goods/:goodsId" element={<DetailPage />} />
+          <Route path="/:goodsId" element={<DetailPage />} />
           {/* 장바구니 */}
           <Route path="/orders" element={<BasketPage />} />
-          {/* 마이페이지 */}
-          <Route path="/mypage" element={<MyPagePage />} />
         </Routes>
       </QueryClientProvider>
     </BrowserRouter>

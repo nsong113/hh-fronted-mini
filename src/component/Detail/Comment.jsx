@@ -1,27 +1,3 @@
-<<<<<<< HEAD
-// import React from "react";
-
-// const Comment = () => {
-//   return (
-//     <div className="CommentContainerDiv">
-//       <h2 className="CommentTitleH2">Comment</h2>
-//       <div>
-//         <textarea />
-//         <div>댓글 입력</div>
-//       </div>
-//       <div>
-//         <div>
-//           <p>완전 맛있어요!</p>
-//           <div>
-//             <button>댓글수정</button>
-//             <button>댓글삭제</button>
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-=======
 import React, { useState } from "react";
 import CommentDetail from "./CommentDetail";
 import * as ST from "./style";
@@ -120,6 +96,5 @@ const Comment = (id) => {
     </ST.CommentContainerDiv>
   );
 };
->>>>>>> 17aded0043a9daa08d48f1b6a47a8b1f1e305542
 
-// export default Comment;
+export default Comment;
