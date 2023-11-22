@@ -1,20 +1,20 @@
 import React, { useEffect, useState } from "react";
 import * as ST from "./style";
 import { useNavigate } from "react-router-dom";
-import { autorization } from "../../api/goods";
 import { useQuery } from "react-query";
+import { checkUserType } from "../../api/goods";
 
 const GoodsBanner = () => {
   const navigate = useNavigate();
   const [userType, setUserType] = useState("BUYER");
 
-  // const { data: authorization } = useQuery("autorization", autorization);
+  const { data } = useQuery("checkUserType", checkUserType);
 
-  // useEffect(() => {
-  //   if (autorization === "SELLER") {
-  //     setUserType("SELLER");
-  //   }
-  // }, [authorization]); //처음에 undefined 라서 //useEffect를 쓸 때에는 axios값이 오나 안오나를 항상 생각하기
+  useEffect(() => {
+    if (data === "SELLER") {
+      setUserType("SELLER");
+    }
+  }, [data]); //처음에 undefined 라서 //useEffect를 쓸 때에는 axios값이 오나 안오나를 항상 생각하기
 
   //  https://github.com/hty0525/front-end/blob/main/src/apis/axiosInstance.js  =>  인터셉터로 인가 퉁치기 - instance/
 

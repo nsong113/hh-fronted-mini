@@ -3,10 +3,20 @@ import * as ST from "./style";
 import { getGoods } from "../../api/goods";
 import { useMutation, useQuery } from "react-query";
 import { useNavigate } from "react-router";
-import { addLike } from "../../api/goods";
+import { addLike, checkUserType } from "../../api/goods";
 
 const Item = ({ filteredItem, onClickFilterHandler, isSuccess, isLoading }) => {
   const navigate = useNavigate();
+  //userType 확인
+  const [userType, setUserType] = useState("BUYER");
+
+  const { data } = useQuery("checkUserType", checkUserType);
+
+  useEffect(() => {
+    if (data === "SELLER") {
+      setUserType("SELLER");
+    }
+  }, [data]);
 
   //디테일 페이지로 이동하기 => state값 id로 주기 (useLocation)
   const goToDetailHandler = (id) => {
@@ -51,11 +61,13 @@ const Item = ({ filteredItem, onClickFilterHandler, isSuccess, isLoading }) => {
                       🩷 {item.likeCount}{" "}
                     </p>
                   </div>
-                  <ST.GoodsItemEditBtn
-                    onClick={(e) => onClickModifyHandler(e, item.goodsId)}
-                  >
-                    수정
-                  </ST.GoodsItemEditBtn>
+                  {userType === "SELLER" && (
+                    <ST.GoodsItemEditBtn
+                      onClick={(e) => onClickModifyHandler(e, item.goodsId)}
+                    >
+                      수정
+                    </ST.GoodsItemEditBtn>
+                  )}
                 </ST.GoodsItemInfoBoxDiv>
               </div>
             </ST.GoodsItemsDiv>

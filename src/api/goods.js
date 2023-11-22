@@ -7,6 +7,26 @@ import Cookies from "universal-cookie";
 
 const cookies = new Cookies();
 
+//유저 확인
+const checkUserType = async () => {
+  const accessToken = cookies.get("accessToken");
+  try {
+    const res = await axios.get(
+      `${process.env.REACT_APP_SERVER_URL}/checkLoginStatus`,
+      {
+        header: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${accessToken}`,
+        },
+      }
+    );
+
+    return res.data;
+  } catch (error) {
+    console.log("checkUserType error", error);
+  }
+};
+
 //usertype 인가
 // const authorization = async () => {
 //   try {
@@ -27,7 +47,7 @@ const cookies = new Cookies();
 //goods 조회
 const getGoods = async () => {
   try {
-    const res = await axios.get(`${process.env.REACT_APP_SERVER_URL}`);
+    const res = await axios.get(`${process.env.REACT_APP_SERVER_URL}/goods`);
     return res.data.data;
   } catch (error) {
     console.log("getGoods통신오류입니다.", error);
@@ -36,18 +56,19 @@ const getGoods = async () => {
 
 //goods 포스트
 const postGoods = async (newContent) => {
-  const accessToken = Cookies.get("accessToken");
+  const accessToken = cookies.get("accessToken");
   try {
     const res = await axios.post(
-      `${process.env.REACT_APP_SERVER_URL}/content`,
+      `${process.env.REACT_APP_SERVER_URL}/goods/content`,
       newContent,
       {
         header: {
+          "Content-Type": "application/json",
           Authorization: `Bearer ${accessToken}`,
         },
       }
     );
-    return res.message;
+    return res.data;
   } catch (error) {
     console.log("postGoods통신오류입니다.", error);
   }
@@ -55,18 +76,19 @@ const postGoods = async (newContent) => {
 
 //goods patch -제품 글 수정
 const patchGoods = async ({ id, newContent }) => {
-  const accessToken = Cookies.get("accessToken");
+  const accessToken = cookies.get("accessToken");
   try {
     const res = await axios.patch(
-      `${process.env.REACT_APP_SERVER_URL}/${id}/content`,
+      `${process.env.REACT_APP_SERVER_URL}/goods/${id}/content`,
       newContent,
       {
         header: {
+          "Content-Type": "application/json",
           Authorization: `Bearer ${accessToken}`,
         },
       }
     );
-    return res.message;
+    return res.data;
   } catch (error) {
     console.log("patchGoods통신오류입니다.", error);
   }
@@ -74,17 +96,18 @@ const patchGoods = async ({ id, newContent }) => {
 
 //goods delete - 제품 글 삭제
 const deleteGoods = async (id) => {
-  const accessToken = Cookies.get("accessToken");
+  const accessToken = cookies.get("accessToken");
   try {
     const res = await axios.delete(
-      `${process.env.REACT_APP_SERVER_URL}/${id}/content`,
+      `${process.env.REACT_APP_SERVER_URL}/goods/${id}/content`,
       {
         header: {
+          "Content-Type": "application/json",
           Authorization: `Bearer ${accessToken}`,
         },
       }
     );
-    return res.message;
+    return res.data;
   } catch (error) {
     console.log("deleteGoods통신오류입니다.", error);
   }
@@ -93,17 +116,18 @@ const deleteGoods = async (id) => {
 //like 추가
 //goods/:goodsId/like
 const addLike = async (id) => {
-  const accessToken = Cookies.get("accessToken");
+  const accessToken = cookies.get("accessToken");
   try {
     const res = await axios.post(
-      `${process.env.REACT_APP_SERVER_URL}/${id}/like`,
+      `${process.env.REACT_APP_SERVER_URL}/goods/${id}/like`,
       {
         header: {
+          "Content-Type": "application/json",
           Authorization: `Bearer ${accessToken}`,
         },
       }
     );
-    return res.message;
+    return res.data;
   } catch (error) {
     console.log("addLike error", error);
   }
@@ -111,18 +135,19 @@ const addLike = async (id) => {
 
 //카트에 저장
 const addToCart = async (update) => {
-  const accessToken = Cookies.get("accessToken");
+  const accessToken = cookies.get("accessToken");
   try {
     const res = await axios.post(
       `${process.env.REACT_APP_SERVER_URL}/orders`,
       update,
       {
         header: {
+          "Content-Type": "application/json",
           Authorization: `Bearer ${accessToken}`,
         },
       }
     );
-    return res.message;
+    return res.data;
   } catch (error) {
     console.log("addToCart error", error);
   }
@@ -131,7 +156,9 @@ const addToCart = async (update) => {
 //상세 정보 글 조회
 const readDetail = async (id) => {
   try {
-    const res = await axios.get(`${process.env.REACT_APP_SERVER_URL}/${id}`);
+    const res = await axios.get(
+      `${process.env.REACT_APP_SERVER_URL}/goods/${id}`
+    );
     return res.data;
   } catch (error) {
     console.log("readDetail error", error);
@@ -150,18 +177,19 @@ const readComment = async (id) => {
 
 //댓글 등록
 const plusComment = async ({ id, addComment }) => {
-  const accessToken = Cookies.get("accessToken");
+  const accessToken = cookies.get("accessToken");
   try {
     const res = await axios.post(
-      `${process.env.REACT_APP_SERVER_URL}/${id}`,
+      `${process.env.REACT_APP_SERVER_URL}/goods/${id}`,
       addComment,
       {
         header: {
+          "Content-Type": "application/json",
           Authorization: `Bearer ${accessToken}`,
         },
       }
     );
-    return res.message;
+    return res.data;
   } catch (error) {
     console.log("addComment error", error);
   }
@@ -169,18 +197,19 @@ const plusComment = async ({ id, addComment }) => {
 
 //상세 정보 글 수정  * 오류 null *
 const patchComment = async (id) => {
-  const accessToken = Cookies.get("accessToken");
+  const accessToken = cookies.get("accessToken");
   try {
     const res = await axios.patch(
-      `${process.env.REACT_APP_SERVER_URL}/${id}`,
+      `${process.env.REACT_APP_SERVER_URL}/goods/${id}`,
       null,
       {
         header: {
+          "Content-Type": "application/json",
           Authorization: `Bearer ${accessToken}`,
         },
       }
     );
-    return res.message;
+    return res.data;
   } catch (error) {
     console.log("patchComment error", error);
   }
@@ -188,17 +217,18 @@ const patchComment = async (id) => {
 
 //상세 정보 글 삭제
 const deleteComment = async (id) => {
-  const accessToken = Cookies.get("accessToken");
+  const accessToken = cookies.get("accessToken");
   try {
     const res = await axios.delete(
-      `${process.env.REACT_APP_SERVER_URL}/${id}`,
+      `${process.env.REACT_APP_SERVER_URL}/goods/${id}`,
       {
         header: {
+          "Content-Type": "application/json",
           Authorization: `Bearer ${accessToken}`,
         },
       }
     );
-    return res.message;
+    return res.data;
   } catch (error) {
     console.log("deleteComment error", error);
   }
@@ -216,4 +246,5 @@ export {
   plusComment,
   patchComment,
   deleteComment,
+  checkUserType,
 };

@@ -12,11 +12,10 @@ const Product = () => {
 
   //이미지 리사이징 할까말까....
 
+  //이미지 업로드 - 파일 읽고 주소 저장
   const onChangeImgUploadHandler = (e) => {
     const file = e.target.files?.[0];
-    // console.log(file);
     const reader = new FileReader();
-    // console.log("reader", reader);
     reader.readAsDataURL(file);
     reader.onloadend = () => {
       setImgFile(reader.result);
