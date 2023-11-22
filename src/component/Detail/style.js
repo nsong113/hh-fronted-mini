@@ -2,7 +2,7 @@ import { styled } from "styled-components";
 
 export const InfoContainer = styled.div`
   width: 80%;
-  height: 60vh;
+  height: 120vh;
   margin: 30px auto;
 `;
 
@@ -66,10 +66,13 @@ export const CommentButton = styled.div`
 export const CommentResultContainer = styled.div`
   width: 80%;
   margin: 30px auto;
-  height: 80px;
+  min-height: 80px;
   border: 1px solid #ddd;
   padding: 0 10px;
   line-height: 80px;
+  display: flex;
+  align-items: center;
+  line-height: 1.4;
 `;
 ///코멘트 디테일 스타일링
 

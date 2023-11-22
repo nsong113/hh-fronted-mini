@@ -8,7 +8,6 @@ const GoodsBanner = () => {
   const navigate = useNavigate();
   const [userType, setUserType] = useState("BUYER");
 
-  //인가는 이런식으로 하는 건가???
   // const { data: authorization } = useQuery("autorization", autorization);
 
   // useEffect(() => {

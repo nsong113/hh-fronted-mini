@@ -3,33 +3,41 @@ import * as ST from "./style";
 import { useLocation } from "react-router-dom";
 import { useMutation, useQuery } from "react-query";
 import { getGoods, addToCart } from "../../api/goods";
+import { readDetail } from "../../api/goods"; ///사용할꺼야?
 
 const Information = () => {
-  const { data: items } = useQuery("getGoods", getGoods);
-  const { state: item } = useLocation();
+  //수량 state
   const [quantity, setQuantity] = useState(1);
 
-  console.log("items", items);
-  console.log("item", item);
+  //goods get 조회
+  const { data: items } = useQuery("getGoods", getGoods);
 
-  // 여기서 items 가 undefined라고 자주 오류 뜸-> 연결 후 확인
-  const fountData = items.find((a) => a.id === item.id);
+  //클릭한 버튼 아이템의 id
+  const { state: item } = useLocation();
 
+  console.log("items", items); //전체 아이템
+  console.log("item", item); //클릭한 상품의 id값 {id:1}
+
+  // 클릭한 아이템의 전체 정보
+  const fountData = items.find((a) => a.goodsId === item.id);
   console.log("fountData", fountData);
 
+  //수량 핸들러
   const onChangeQuantHandler = (e) => {
     setQuantity(e.target.value);
   };
 
+  //카트에 저장 뮤테이션 생성  =>  => * 쿠키 에러 *
   const addToCartMutation = useMutation(addToCart, {
     onSuccess: () => {
       alert("추가되었습니다.");
     },
   });
 
+  //카트에 저장 뮤테이션 사용
   const onClickAddtoCardHandler = () => {
     const update = {
-      id: fountData.id,
+      id: fountData.goodsId,
       quantity,
     };
     console.log("update", update);

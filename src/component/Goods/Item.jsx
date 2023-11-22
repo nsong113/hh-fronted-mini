@@ -5,73 +5,62 @@ import { useMutation, useQuery } from "react-query";
 import { useNavigate } from "react-router";
 import { addLike } from "../../api/goods";
 
-const Item = ({ filteredItem, onClickFilterHandler }) => {
-  // const {
-  //   isLoading,
-  //   isError,
-  //   data: goods,
-  //   isSuccess,
-  // } = useQuery("getGoods", getGoods);
-  // const [filteredGoods, setFilteredGoods] = useState([]);
+const Item = ({ filteredItem, onClickFilterHandler, isSuccess, isLoading }) => {
   const navigate = useNavigate();
 
-  //첫 렌더링 시 전체 goods 보여주기 //뒤로가기&홈버튼 클릭시 전체 로딩이 안됨.
-  // useEffect(() => {
-  //   goods && setFilteredGoods(goods); // 수정 // or  isSuccess가 true일 때만 얘를 바꿔줄수도
-  // }, [goods]);
-
-  // console.log("filteredGoods", filteredGoods);
-  // console.log("goods", goods);
-
-  //필터 될 때 필터된 goods 보여주기
-  // useEffect(() => {
-  //   filteredItem && setFilteredGoods(filteredItem);
-  // }, [filteredItem]);
-
-  // if (isLoading) {
-  //   console.log("goods로딩중입니다.");
-  // }
-  // if (isError) {
-  //   console.log("goods에러입니다. ");
-  // }
-
+  //디테일 페이지로 이동하기 => state값 id로 주기 (useLocation)
   const goToDetailHandler = (id) => {
     navigate(`/goods/${id}`, { state: { id } });
   };
 
   //addLike Mutation
-  useMutation("getGoods", addLike);
+  const addLikeMutation = useMutation("getGoods", addLike);
 
-  //addLike Mutation 사용
-  const addLikeHandler = (id) => {};
+  //addLike Mutation 사용   => * 쿠키 에러 *
+  const addLikeHandler = (e, id) => {
+    e.stopPropagation();
+    addLikeMutation.mutate(id);
+  };
+
+  //수정으로 가기
+  const onClickModifyHandler = (e, id) => {
+    e.stopPropagation();
+    navigate(`/goods/content`, { state: { id } });
+  };
 
   return (
     <>
-      {filteredItem.map((item) => {
-        return (
-          <ST.GoodsItemsDiv
-            key={item.id}
-            onClick={() => goToDetailHandler(item.id)}
-          >
-            <div>
-              <ST.GoodsImgDiv
-                style={{ backgroundImage: `url(${item.imageUrl})` }}
-              ></ST.GoodsImgDiv>
+      {!isLoading &&
+        isSuccess &&
+        filteredItem.map((item) => {
+          return (
+            <ST.GoodsItemsDiv
+              key={item.id}
+              onClick={() => goToDetailHandler(item.goodsId)}
+            >
+              <div>
+                <ST.GoodsImgDiv
+                  style={{ backgroundImage: `url(${item.imageUrl})` }}
+                ></ST.GoodsImgDiv>
 
-              <ST.GoodsItemInfoBoxDiv>
-                <div className="GoodsItemInfoDiv">
-                  <h6>{item.goodsName}</h6>
-                  <h4>{item.price}</h4>
-                  <p onClick={() => addLikeHandler(item.id)}>
-                    🩷 {item.likeCount}{" "}
-                  </p>
-                </div>
-                <ST.GoodsItemEditBtn>수정</ST.GoodsItemEditBtn>
-              </ST.GoodsItemInfoBoxDiv>
-            </div>
-          </ST.GoodsItemsDiv>
-        );
-      })}
+                <ST.GoodsItemInfoBoxDiv>
+                  <div className="GoodsItemInfoDiv">
+                    <h6>{item.goodsName}</h6>
+                    <h4>{item.price}</h4>
+                    <p onClick={(e) => addLikeHandler(e, item.goodsId)}>
+                      🩷 {item.likeCount}{" "}
+                    </p>
+                  </div>
+                  <ST.GoodsItemEditBtn
+                    onClick={(e) => onClickModifyHandler(e, item.goodsId)}
+                  >
+                    수정
+                  </ST.GoodsItemEditBtn>
+                </ST.GoodsItemInfoBoxDiv>
+              </div>
+            </ST.GoodsItemsDiv>
+          );
+        })}
     </>
   );
 };
