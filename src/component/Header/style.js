@@ -39,3 +39,13 @@ export const HeaderUtilContentP = styled.p`
   font-size: 21px;
   color: #b8c6d5; 
 `;
+
+export const HeaderUtilContent = styled.p`
+  cursor: pointer;
+  text-decoration: underline;
+  margin: 0 10px;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+`;

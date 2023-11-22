@@ -1,4 +1,4 @@
-// 회원가입 페이지
+// Frontend Component
 import React, { useState } from 'react';
 import { useMutation } from 'react-query';
 import { Link } from 'react-router-dom';
@@ -7,17 +7,19 @@ import Header from "../component/Header/Header";
 import Footer from "../component/Footer/Footer";
 import axios from 'axios';
 
-function Join() {
+const BUYER = 'BUYER';
+const SELLER = 'SELLER';
+
+const Join = () => {
   const [loginId, setLoginId] = useState("");
   const [password, setPassword] = useState("");
   const [nickname, setNickname] = useState("");
   const [userType, setUserType] = useState("");
 
   const registerMutation = useMutation(
-    async ({ loginId, password, nickname, userType }) => {
+    async ({ loginId, password, nickname, userType = ["BUYER", "SELLER"] }) => {
       try {
-        const response = await axios.post("http://localhost:4000/signup", {
-          id: null,
+        const response = await axios.post("http://43.200.49.63:3000/api/signup", {
           loginId,
           password,
           nickname,
@@ -26,30 +28,25 @@ function Join() {
         console.log('Response:', response.data);
         return response.data;
       } catch (error) {
-        console.log('Error:', error);
+        console.error('Error during signup:', error);
         throw error;
       }
     }
   );
+  
 
   const onJoinHandler = async () => {
-    if (!loginId || !password || !nickname || !userType) {
-      console.log('ID, password, nickname, and userType are required.');
-      return;
-    }
-
     try {
       const response = await registerMutation.mutateAsync({ loginId, password, nickname, userType });
-
       const token = response.token;
-
       document.cookie = `token=${token}; path=/`;
-
     } catch (error) {
+      console.error('Error during signup:', error);
       if (error.response) {
         if (error.response.status === 400) {
-        } else if (error.response.status === 409 && error.response.data.message === '409 중복된 닉네임으로 회원가입을 시도한 경우') {
-          console.log('중복된 닉네임입니다.');
+          console.log('입력값이 올바르지 않습니다.');
+        } else if (error.response.status === 409) {
+          console.log('중복된 USER ID입니다.');
         } else {
           console.log('An unexpected error occurred.');
         }
@@ -96,8 +93,8 @@ function Join() {
             onChange={(e) => setUserType(e.target.value)}
           >
             <option value="">Select User Type</option>
-            <option value="BUYER">BUYER</option>
-            <option value="SELLER">SELLER</option>
+            <option value={BUYER}>BUYER</option>
+            <option value={SELLER}>SELLER</option>
           </Styled.Select>
 
           <Styled.Button type="button" onClick={onJoinHandler} disabled={registerMutation.isLoading}>
@@ -113,6 +110,6 @@ function Join() {
       <Footer />
     </>
   );
-}
+};
 
 export default Join;

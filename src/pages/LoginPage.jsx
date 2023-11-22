@@ -7,8 +7,6 @@ import Header from "../component/Header/Header";
 import Footer from "../component/Footer/Footer";
 import axios from 'axios';
 
-
-
 function Login() {
   const [loginId, setLoginId] = useState("");
   const [password, setPassword] = useState("");
@@ -17,12 +15,17 @@ function Login() {
   const loginMutation = useMutation(
     async ({ loginId, password }) => {
       try {
-        const response = await axios.post("http://localhost:4000/signup", {
+        const response = await axios.post("http://43.200.49.63:3000/api/login", {
           loginId,
           password,
         });
+
+        // Assuming your token is in the response.data.token
+        const token = response.data.token;
+
         console.log('Login Response:', response.data);
-        return response.data;
+
+        return { userData: response.data, token };
       } catch (error) {
         console.log('Login Error:', error);
         throw error;
@@ -38,10 +41,14 @@ function Login() {
 
     setError("");
     try {
-      const userData = await loginMutation.mutateAsync({ loginId, password });
+      const { userData, token } = await loginMutation.mutateAsync({ loginId, password });
 
       console.log('User data after login:', userData);
+
+      document.cookie = `token=${token}; path=/`;
+
     } catch (error) {
+      console.error('Error during login:', error);
       if (error.response && error.response.status === 401) {
         setError('Invalid credentials. Please check your ID and password.');
       } else {
