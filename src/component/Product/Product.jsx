@@ -29,7 +29,6 @@ const Product = (props) => {
   //수정하기
   const [editImage, setEditImage] = useState("");
   const [editPrice, setEditPrice] = useState(0);
-  const [editContent, setEditContent] = useState("");
   const onChangeEditHandler = (e) => {
     setEditPrice(e.target.value);
   };
@@ -42,8 +41,8 @@ const Product = (props) => {
 
   // 수정페이지 useLocation으로 id 정보 받기
   const { state: item } = useLocation();
-  console.log("items", items); //전체 아이템
-  console.log("item", item); //2
+  // console.log("items", items); //전체 아이템
+  // console.log("item", item); //2
 
   // useEffect(() => {
   //   const fetchData = async () => {
@@ -56,10 +55,10 @@ const Product = (props) => {
   //       console.error("Error fetching data: ", error);
   //     }
   // }, []);
-  const fountData = items?.find((a) => a.goodsId === item.id);
+  const fountData = items?.find((a) => a.goodsId === item?.id);
 
   //버튼 누른거 필터링 시키기
-  console.log("fountData", fountData);
+  // console.log("fountData", fountData);
 
   //이미지 리사이징 할까말까....
 
@@ -96,7 +95,7 @@ const Product = (props) => {
     imageUrl: imgFile,
     price: parseInt(price),
     content: desc,
-    likeCount: 0,
+    // likeCount: 1,
   };
 
   const postBoardHandler = () => {
@@ -104,7 +103,11 @@ const Product = (props) => {
   };
 
   //글 수정 post 보내기
-  const EditMutation = useMutation(patchGoods);
+  const EditMutation = useMutation(patchGoods, {
+    onSuccess: () => {
+      alert("수정완료입니다.");
+    },
+  });
 
   const editDetail = {
     goodsName: fountData?.goodsName,

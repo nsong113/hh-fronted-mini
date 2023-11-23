@@ -33,6 +33,7 @@ import axios from "axios";
 const getGoods = async () => {
   try {
     const res = await axios.get(`${process.env.REACT_APP_SERVER_URL}/goods`);
+    console.log("res", res.data.data);
     return res.data.data;
   } catch (error) {
     console.log("getGoods통신오류입니다.", error);

@@ -80,7 +80,7 @@ const Item = ({ filteredItem, isSuccess, isLoading }) => {
                     <h6>{item.goodsName}</h6>
                     <h4>{item.price}</h4>
                     <p onClick={(e) => addLikeHandler(e, item.goodsId)}>
-                      🩷 {item.likeCount}{" "}
+                      🩷 {item.likeCount}
                     </p>
                   </div>
 

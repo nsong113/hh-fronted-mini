@@ -34,9 +34,11 @@ const Information = () => {
   //카트에 저장 뮤테이션 사용
   const onClickAddtoCardHandler = () => {
     const update = {
-      id: fountData.goodsId,
-      quantity: parseInt(quantity),
+      goodsId: fountData.goodsId,
+      // quantity: parseInt(quantity, 10),
+      quantity: quantity,
     };
+    console.log("update type", typeof quantity, quantity);
     // console.log("update", update);
     addToCartMutation.mutate(update);
   };
