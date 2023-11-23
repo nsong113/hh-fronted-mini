@@ -6,7 +6,7 @@ export const FooterBoxDiv = styled.div`
   text-align: center;
   background-color: #ead2d4;
 `;
-
+//
 export const FooterContainerDiv = styled.div`
   width: 80%;
   height: 30vh;

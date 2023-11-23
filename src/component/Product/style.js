@@ -12,7 +12,7 @@ export const ProductAttatchmentDiv = styled.div`
   height: 60vh;
   margin-top: 30px;
 `;
-
+//
 export const ProductAttatchInputBox = styled.div`
   width: 100%;
   height: 30px;

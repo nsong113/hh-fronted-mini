@@ -5,7 +5,7 @@ import Header from "../component/Header/Header";
 import Footer from "../component/Footer/Footer";
 import Goods from "../component/Goods/Goods";
 import GoodsBanner from "../component/Goods/GoodsBanner";
-
+//
 const GoodsPage = () => {
   return (
     <div>

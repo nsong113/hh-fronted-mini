@@ -101,7 +101,7 @@ const Product = (props) => {
   const postBoardHandler = () => {
     boardMutation.mutate(newContent);
   };
-
+  //
   //글 수정 post 보내기
   const EditMutation = useMutation(patchGoods, {
     onSuccess: () => {

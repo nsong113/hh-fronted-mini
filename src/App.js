@@ -9,7 +9,7 @@ import LoginPage from "./pages/LoginPage";
 import ProductPage from "./pages/ProductPage";
 import SignupPage from "./pages/SignupPage";
 import Edit from "./pages/Edit";
-
+//
 const queryClient = new QueryClient();
 
 function App() {

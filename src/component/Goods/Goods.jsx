@@ -12,7 +12,7 @@ const Goods = () => {
   useEffect(() => {
     setFilteredItem(goods);
   }, [goods]);
-
+  //
   //필터기능 input state 관리
   const [filterInput, setFilterInput] = useState("");
 

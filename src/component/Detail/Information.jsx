@@ -10,7 +10,7 @@ const Information = () => {
   const onChangeQuantHandler = (e) => {
     setQuantity(e.target.value);
   };
-
+  //
   //goods get 조회
   const { data: items } = useQuery("getGoods", getGoods);
 

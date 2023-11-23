@@ -1,15 +1,15 @@
 // Frontend Component
-import React, { useState } from 'react';
-import { useMutation } from 'react-query';
-import { Link } from 'react-router-dom';
+import React, { useState } from "react";
+import { useMutation } from "react-query";
+import { Link } from "react-router-dom";
 import * as Styled from "../component/Signup/style";
 import Header from "../component/Header/Header";
 import Footer from "../component/Footer/Footer";
-import axios from 'axios';
+import axios from "axios";
 
-const BUYER = 'BUYER';
-const SELLER = 'SELLER';
-
+const BUYER = "BUYER";
+const SELLER = "SELLER";
+//
 const Join = () => {
   const [loginId, setLoginId] = useState("");
   const [password, setPassword] = useState("");
@@ -19,39 +19,46 @@ const Join = () => {
   const registerMutation = useMutation(
     async ({ loginId, password, nickname, userType = ["BUYER", "SELLER"] }) => {
       try {
-        const response = await axios.post("http://43.200.49.63:3000/api/signup", {
-          loginId,
-          password,
-          nickname,
-          userType,
-        });
-        console.log('Response:', response.data);
+        const response = await axios.post(
+          "http://43.200.49.63:3000/api/signup",
+          {
+            loginId,
+            password,
+            nickname,
+            userType,
+          }
+        );
+        console.log("Response:", response.data);
         return response.data;
       } catch (error) {
-        console.error('Error during signup:', error);
+        console.error("Error during signup:", error);
         throw error;
       }
     }
   );
-  
 
   const onJoinHandler = async () => {
     try {
-      const response = await registerMutation.mutateAsync({ loginId, password, nickname, userType });
+      const response = await registerMutation.mutateAsync({
+        loginId,
+        password,
+        nickname,
+        userType,
+      });
       const token = response.token;
       document.cookie = `token=${token}; path=/`;
     } catch (error) {
-      console.error('Error during signup:', error);
+      console.error("Error during signup:", error);
       if (error.response) {
         if (error.response.status === 400) {
-          console.log('입력값이 올바르지 않습니다.');
+          console.log("입력값이 올바르지 않습니다.");
         } else if (error.response.status === 409) {
-          console.log('중복된 USER ID입니다.');
+          console.log("중복된 USER ID입니다.");
         } else {
-          console.log('An unexpected error occurred.');
+          console.log("An unexpected error occurred.");
         }
       } else {
-        console.log('An unexpected error occurred.');
+        console.log("An unexpected error occurred.");
       }
     }
   };
@@ -97,13 +104,16 @@ const Join = () => {
             <option value={SELLER}>SELLER</option>
           </Styled.Select>
 
-          <Styled.Button type="button" onClick={onJoinHandler} disabled={registerMutation.isLoading}>
-            {registerMutation.isLoading ? 'Joining...' : 'Join!'}
+          <Styled.Button
+            type="button"
+            onClick={onJoinHandler}
+            disabled={registerMutation.isLoading}
+          >
+            {registerMutation.isLoading ? "Joining..." : "Join!"}
           </Styled.Button>
 
           <Styled.LinkText>
-            이미 계정이 있으신가요?{' '}
-            <Link to="/login">로그인</Link>
+            이미 계정이 있으신가요? <Link to="/login">로그인</Link>
           </Styled.LinkText>
         </Styled.Form>
       </Styled.Container>

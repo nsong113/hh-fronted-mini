@@ -10,7 +10,7 @@ export const GoodsBannerDiv = styled.div`
   justify-content: space-between;
   align-items: center;
 `;
-
+//
 export const GoodsBannerButtonDiv = styled.div`
   width: 250px;
   height: 50px;

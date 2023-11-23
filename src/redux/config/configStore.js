@@ -5,7 +5,5 @@ const store = configureStore({
     //리듀서
   },
 });
-
+//
 export default store;
-
-

@@ -10,7 +10,7 @@ const Header = () => {
   const onClickHomeHandler = () => {
     navigate("/goods");
   };
-
+  //
   const onClickUploadHandler = () => {
     navigate("/goods/content");
   };

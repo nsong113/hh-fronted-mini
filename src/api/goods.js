@@ -100,7 +100,7 @@ const deleteGoods = async (id) => {
     console.log("deleteGoods통신오류입니다.", error);
   }
 };
-
+//
 //like 추가
 //goods/:goodsId/like
 const addLike = async (id) => {

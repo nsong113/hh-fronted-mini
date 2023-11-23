@@ -10,7 +10,7 @@ export const InfoTitleBox = styled.div`
   width: 100%;
   height: 80%;
 `;
-
+//
 export const InfoFlexBox = styled.div`
   display: flex;
   align-items: center;

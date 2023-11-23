@@ -9,7 +9,7 @@ import {
   readComment,
 } from "../../api/goods";
 import { useLocation } from "react-router-dom";
-
+//
 const Comment = (id) => {
   //클릭한 아이템
   const { state: item } = useLocation(); //{id:2}

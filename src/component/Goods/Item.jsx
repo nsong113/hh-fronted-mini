@@ -11,7 +11,7 @@ const Item = ({ filteredItem, isSuccess, isLoading }) => {
 
   //userType 확인
   // const [userType, setUserType] = useState("BUYER");
-
+  //
   // const { data } = useQuery("checkUserType", checkUserType);
 
   // useEffect(() => {

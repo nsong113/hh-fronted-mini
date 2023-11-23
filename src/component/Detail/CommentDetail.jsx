@@ -10,7 +10,7 @@ const CommentDetail = ({
 }) => {
   //detail 조회
   const { data } = useQuery("readComment", readComment);
-
+  //
   return (
     // 댓글 map 아직 안시킴.
     //css도 map 크기에 따라 달라지게 아직 설정 안함
