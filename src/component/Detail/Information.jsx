@@ -1,13 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import * as ST from "./style";
 import { useLocation } from "react-router-dom";
 import { useMutation, useQuery } from "react-query";
 import { getGoods, addToCart } from "../../api/goods";
-import { readDetail } from "../../api/goods"; ///사용할꺼야?
 
 const Information = () => {
   //수량 state
   const [quantity, setQuantity] = useState(1);
+  const onChangeQuantHandler = (e) => {
+    setQuantity(e.target.value);
+  };
 
   //goods get 조회
   const { data: items } = useQuery("getGoods", getGoods);
@@ -15,17 +17,12 @@ const Information = () => {
   //클릭한 버튼 아이템의 id
   const { state: item } = useLocation();
 
-  console.log("items", items); //전체 아이템
-  console.log("item", item); //클릭한 상품의 id값 {id:1}
+  // console.log("items", items); //전체 아이템
+  // console.log("item", item); //클릭한 상품의 id값 {id:1}
 
   // 클릭한 아이템의 전체 정보
   const fountData = items.find((a) => a.goodsId === item.id);
-  console.log("fountData", fountData);
-
-  //수량 핸들러
-  const onChangeQuantHandler = (e) => {
-    setQuantity(e.target.value);
-  };
+  // console.log("fountData", fountData);
 
   //카트에 저장 뮤테이션 생성  =>  => * 쿠키 에러 *
   const addToCartMutation = useMutation(addToCart, {
@@ -38,9 +35,9 @@ const Information = () => {
   const onClickAddtoCardHandler = () => {
     const update = {
       id: fountData.goodsId,
-      quantity,
+      quantity: parseInt(quantity),
     };
-    console.log("update", update);
+    // console.log("update", update);
     addToCartMutation.mutate(update);
   };
 
@@ -49,10 +46,11 @@ const Information = () => {
       <ST.InfoTitleBox>
         <h1>제품 상세 정보</h1>
         <img
-          alt="제품 상세 정보 페이지"
           //이미지가 안뜨고 있음..
           // style={{ backgroundImage: `url(${fountData.imageUrl})` }}
-          style={{ backgroundImage: `url(/main_item.png)` }}
+          // style={{ backgroundImage: `url(/main_item.png)` }}
+          src={fountData.imageUrl}
+          alt="프로필 이미지"
         ></img>
       </ST.InfoTitleBox>
 

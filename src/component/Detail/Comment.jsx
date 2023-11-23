@@ -7,7 +7,6 @@ import {
   patchComment,
   deleteComment,
   readComment,
-  readDetail,
 } from "../../api/goods";
 import { useLocation } from "react-router-dom";
 

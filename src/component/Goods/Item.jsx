@@ -1,22 +1,24 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import * as ST from "./style";
-import { getGoods } from "../../api/goods";
-import { useMutation, useQuery } from "react-query";
+import { useMutation, useQueryClient } from "react-query";
 import { useNavigate } from "react-router";
-import { addLike, checkUserType } from "../../api/goods";
+import { addLike, deleteGoods } from "../../api/goods";
 
-const Item = ({ filteredItem, onClickFilterHandler, isSuccess, isLoading }) => {
+const Item = ({ filteredItem, isSuccess, isLoading }) => {
   const navigate = useNavigate();
+  console.log("filteredItem", filteredItem);
+  // console.log("filteredItem", filteredItem[0].goodsId);
+
   //userType 확인
-  const [userType, setUserType] = useState("BUYER");
+  // const [userType, setUserType] = useState("BUYER");
 
-  const { data } = useQuery("checkUserType", checkUserType);
+  // const { data } = useQuery("checkUserType", checkUserType);
 
-  useEffect(() => {
-    if (data === "SELLER") {
-      setUserType("SELLER");
-    }
-  }, [data]);
+  // useEffect(() => {
+  //   if (data === "SELLER") {
+  //     setUserType("SELLER");
+  //   }
+  // }, [data]);
 
   //디테일 페이지로 이동하기 => state값 id로 주기 (useLocation)
   const goToDetailHandler = (id) => {
@@ -24,7 +26,12 @@ const Item = ({ filteredItem, onClickFilterHandler, isSuccess, isLoading }) => {
   };
 
   //addLike Mutation
-  const addLikeMutation = useMutation("getGoods", addLike);
+  const queryClient = useQueryClient();
+  const addLikeMutation = useMutation(addLike, {
+    onSuccess: () => {
+      queryClient.invalidateQueries("getGoods");
+    },
+  });
 
   //addLike Mutation 사용   => * 쿠키 에러 *
   const addLikeHandler = (e, id) => {
@@ -35,19 +42,34 @@ const Item = ({ filteredItem, onClickFilterHandler, isSuccess, isLoading }) => {
   //수정으로 가기
   const onClickModifyHandler = (e, id) => {
     e.stopPropagation();
-    navigate(`/goods/content`, { state: { id } });
+    navigate(`/goods/${id}/content`, { state: { id } });
+    console.log("id", id);
+  };
+
+  //삭제
+  const deleteMutation = useMutation(deleteGoods, {
+    onSuccess: () => {
+      queryClient.invalidateQueries("getGoods");
+    },
+  });
+
+  const onClickDeleteHandler = (e, id) => {
+    e.stopPropagation();
+    deleteMutation.mutate(id);
   };
 
   return (
     <>
+      {/* 여기서 맵핑시키기 */}
       {!isLoading &&
         isSuccess &&
-        filteredItem.map((item) => {
+        filteredItem?.map((item) => {
           return (
             <ST.GoodsItemsDiv
               key={item.id}
               onClick={() => goToDetailHandler(item.goodsId)}
             >
+              {console.log("item", item.goodsId)}
               <div>
                 <ST.GoodsImgDiv
                   style={{ backgroundImage: `url(${item.imageUrl})` }}
@@ -61,13 +83,17 @@ const Item = ({ filteredItem, onClickFilterHandler, isSuccess, isLoading }) => {
                       🩷 {item.likeCount}{" "}
                     </p>
                   </div>
-                  {userType === "SELLER" && (
-                    <ST.GoodsItemEditBtn
-                      onClick={(e) => onClickModifyHandler(e, item.goodsId)}
-                    >
-                      수정
-                    </ST.GoodsItemEditBtn>
-                  )}
+
+                  <ST.GoodsItemEditBtn
+                    onClick={(e) => onClickModifyHandler(e, item.goodsId)}
+                  >
+                    수정
+                  </ST.GoodsItemEditBtn>
+                  <ST.GoodsItemEditBtn
+                    onClick={(e) => onClickDeleteHandler(e, item.goodsId)}
+                  >
+                    삭제
+                  </ST.GoodsItemEditBtn>
                 </ST.GoodsItemInfoBoxDiv>
               </div>
             </ST.GoodsItemsDiv>

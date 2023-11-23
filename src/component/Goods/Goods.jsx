@@ -9,6 +9,10 @@ const Goods = () => {
   //goods data get
   const { isLoading, isSuccess, data: goods } = useQuery("getGoods", getGoods);
 
+  useEffect(() => {
+    setFilteredItem(goods);
+  }, [goods]);
+
   //필터기능 input state 관리
   const [filterInput, setFilterInput] = useState("");
 
@@ -54,7 +58,6 @@ const Goods = () => {
         <ST.GoodsItemFlexBox>
           <Item
             filteredItem={filteredItem}
-            onClickFilterHandler={onClickFilterHandler}
             isSuccess={isSuccess}
             isLoading={isLoading}
           />

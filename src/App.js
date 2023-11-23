@@ -6,9 +6,9 @@ import BasketPage from "./pages/BasketPage";
 import DetailPage from "./pages/DetailPage";
 import GoodsPage from "./pages/GoodsPage";
 import LoginPage from "./pages/LoginPage";
-import MyPagePage from "./pages/MyPagePage";
 import ProductPage from "./pages/ProductPage";
 import SignupPage from "./pages/SignupPage";
+import Edit from "./pages/Edit";
 
 const queryClient = new QueryClient();
 
@@ -25,6 +25,8 @@ function App() {
           <Route path="/goods" element={<GoodsPage />} />
           {/* 글작성 페이지 */}
           <Route path="/goods/content" element={<ProductPage />} />
+          {/* 글수정 페이지 */}
+          <Route path="/goods/:goodsId/content" element={<Edit />} />
           {/* 상세페이지 + 코멘트 */}
           <Route path="/goods/:goodsId" element={<DetailPage />} />
           {/* 장바구니 */}
