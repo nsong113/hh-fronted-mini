@@ -8,6 +8,10 @@
 # testing
 /coverage
 
+# eslint cache
+.eslintcache
+
+
 # production
 /build
 db.json
